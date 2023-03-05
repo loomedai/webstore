@@ -1,15 +1,16 @@
+
 function Navbar() {
+
     return (
-      <div className="nav">
-        <a href="/" className="site-title">Lemonader</a>
-
-        <ul>
-            <li>
-                <a href="kurv" className="kurv">kurv</a>
-            </li>
-        </ul>
-
-        </div>
+      <div className="navbar">
+      <div className="logo">
+        <img src="{logo}" alt="Logo" />
+      </div>
+      <ul className="nav-links">
+        <li><a href="#">Produkter</a></li>
+        <li><a href="#">kurv</a></li>
+      </ul>
+    </div>
     );
   }
 
