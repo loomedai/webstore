@@ -21,7 +21,7 @@ function Drinks(){
     <div className=''>
 
       {lemons.map((lemon) => (
-        <div className='blog-preview' key={lemon.id}>
+        <div className='lemonade-preview' key={lemon.id}>
           <h2>{lemon.title}</h2>
           <p>{lemon.price}</p>
 
