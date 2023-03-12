@@ -1,16 +1,8 @@
 import{useState, useEffect} from 'react';
-
-
+import { Counter } from '../features/counter/Counter';
 
 function Drinks(){
   const [cocktails, setCocktails] = useState([]);
-
-
- // const [lemons, setLemons] = useState([
- //   {title:'LemonSour', body: 'Lorem ipsum', price:'29kr', id: 1},
- //   {title:'Sweet n Sour', body: 'Lorem ipsum', price:'20kr', id: 2},
- //   {title:'SoulSour', body: 'Lorem ipsum', price:'49kr', id: 3},
- // ]);
 
  useEffect(() => {
   const fetchData = async () => {
@@ -22,12 +14,13 @@ function Drinks(){
 }, []);
 
 return (
-  <div>
+  <div className='container'>
     {cocktails.map(cocktail => (
-      <div key={cocktail.idDrink}>
+      <div className="item"  key={cocktail.idDrink}>
         <h2>{cocktail.strDrink}</h2>
-        <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
+        <img  src={cocktail.strDrinkThumb} alt={cocktail.strDrink} className="dimg" />
         <p>{cocktail.strInstructions}</p>
+        
       </div>
     ))}
   </div>

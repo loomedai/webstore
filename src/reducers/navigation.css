@@ -35,3 +35,22 @@ body{
   .nav-links li {
     margin-right: 10px;
   }
+
+  .container{
+    display:flex;
+    flex-wrap: wrap;
+  }
+
+  .item{
+    height: 150px;
+    flex-basis: 30%;
+    font-size: medium;
+    background-color: darkgray;
+    margin: 10px;
+    width: 30%;
+    padding: 10px;
+  }
+  
+  .dimg{
+    height: 200px;
+  }

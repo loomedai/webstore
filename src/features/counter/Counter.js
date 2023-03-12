@@ -45,7 +45,7 @@ export function Counter() {
           className={styles.button}
           onClick={() => dispatch(incrementByAmount(incrementValue))}
         >
-          Add Amount
+          Add to cart
         </button>
        
       </div>
