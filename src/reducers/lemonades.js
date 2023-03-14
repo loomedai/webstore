@@ -25,7 +25,7 @@ return (
       <div className="item"  key={cocktail.idDrink}>
         <h2>{cocktail.strDrink}</h2>
         <img  src={cocktail.strDrinkThumb} alt={cocktail.strDrink} className="dimg" />
-        <p>{cocktail.idDrink.substring(0, 3)} kr.</p>
+        <p>{parseFloat(cocktail.idDrink.substring(0, 3)).toFixed(2)} kr.</p>
         <button onClick= {() => handleAddToCart(cocktail)}>add to cart</button>
         
       </div>
