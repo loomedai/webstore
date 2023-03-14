@@ -90,6 +90,36 @@ body{
 
   }
 
+  .cartContainer .titles .prodTitle{
+    padding-left: 0.5rem;
+
+  }
+  .cartContainer .titles .total{
+    padding-right: 0.5rem;
+    justify-self:right ;
+    
+  }
+
+  .cartItem{
+    border-top: 1px solid rgb(187, 187, 187);
+    padding: 1rem 0;
+  }
+
+  .cartItem .cartCocktail{
+    display: flex;
+    width: 100px;
+    max-width: 100%;
+    margin-right: 1rem;
+  }
+
+  .cartItem .cartCocktail img{
+    width: 200px;
+    height: 200px;
+    margin-right: 1rem;
+  }  
+
+
+
   @media only screen and (min-width: 768px) {
     
     .item{
