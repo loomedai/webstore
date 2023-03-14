@@ -1,8 +1,11 @@
 import{useState, useEffect} from 'react';
 import { Counter } from '../features/counter/Counter';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../features/counter/CartSlice';
 
 function Drinks(){
   const [cocktails, setCocktails] = useState([]);
+  const dispatch = useDispatch();
 
  useEffect(() => {
   const fetchData = async () => {
@@ -13,6 +16,10 @@ function Drinks(){
   fetchData();
 }, []);
 
+const handleAddToCart = (cocktail) =>{
+    dispatch(addToCart(cocktail))
+}
+
 return (
   <div className='container'>
     {cocktails.map(cocktail => (
@@ -20,7 +27,8 @@ return (
         <h2>{cocktail.strDrink}</h2>
         <img  src={cocktail.strDrinkThumb} alt={cocktail.strDrink} className="dimg" />
         <p>{cocktail.idDrink.substring(0, 3)} kr.</p>
-        <button className="btn">Add to cart</button>
+        <button onClick= {() => handleAddToCart(cocktail)}>add to cart</button>
+        
       </div>
     ))}
   </div>
