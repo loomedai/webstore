@@ -1,5 +1,4 @@
 import{useState, useEffect} from 'react';
-import { Counter } from '../features/counter/Counter';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../features/counter/CartSlice';
 
