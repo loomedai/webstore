@@ -19,6 +19,7 @@ return (
       <div className="item"  key={cocktail.idDrink}>
         <h2>{cocktail.strDrink}</h2>
         <img  src={cocktail.strDrinkThumb} alt={cocktail.strDrink} className="dimg" />
+        <p>{cocktail.idDrink.substring(0, 3)} kr.</p>
         <button className="btn">Add to cart</button>
       </div>
     ))}
