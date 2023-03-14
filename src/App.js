@@ -1,18 +1,24 @@
 import React from 'react';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Cart from './pages/Cart';
+import Home from './pages/Home';
 import Navbar from './reducers/navigation';
-import Drinks from './reducers/lemonades'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+         
 
-        <Navbar />        
-        <Counter />
-        <Drinks />
-
+        <Router>
+        <Navbar /> 
+          <Routes>
+          <Route path="/" element={<Home />} /> 
+            <Route path="/Cart" element={<Cart />} /> 
+          </Routes>          
+        </Router>
+       
       </header>
     </div>
   );

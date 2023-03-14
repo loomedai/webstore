@@ -1,17 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import lemon from "../img/lemonaiderlogo.png"
 
 function Navbar() {
-
-  const logoUrl = 'https://ibb.co/h2RjJQv';
 
     return (
       <div className="navbar">
       <div className="logo">
-      <img src="./../img/lemonaiderlogo"  alt="Logo" />
+      <img src={lemon}  alt="Logo" className="logoImg"/>
       </div>
       <ul className="nav-links">
-        <li><a href="/">Produkter</a></li>
-        <li><a href="#">kurv</a></li>
+        <li><Link to="/">Produkter</Link></li>
+        <li><Link to="/Cart">kurv</Link></li>
       </ul>
     </div>
     );
