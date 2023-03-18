@@ -31,16 +31,13 @@ function Cart() {
                         <div class="cartCocktail">
                             <img  src={cartItem.strDrinkThumb} alt={cartItem.strDrink} className="dimg" />
                             <div>
-                                <div>
-                                    <h3>{cartItem.strDrink}</h3>
-                                </div>
-                               <button> Remove </button> 
-                            </div>
-                            
+                                <h3>{cartItem.strDrink}</h3>
+                               <button> fjern </button> 
+                            </div>    
                         </div>
 
                         <div className="cartPrice">
-                        <p>{parseInt(cartItem.idDrink.substring(0, 3))} kr.</p>
+                        {parseInt(cartItem.idDrink.substring(0, 3))} kr.
                         </div>
                         <div className="cartQuantity">
                             <button>-</button>
@@ -49,18 +46,29 @@ function Cart() {
                         </div>
 
                         <div className="totalPrice">
-                         {cart.cartItems.reduce(
-                        (total, cartItem) =>
-                        total +
-                        parseFloat(cartItem.idDrink.substring(0, 3)) *
-                        cartItem.cartQuantity,
-                        0).toFixed(2)} kr.
+                          kr.
                         </div>
                     </div>
                     
                 ))}
-
             </div>
+            <div className='cartSummary'>
+                <button className='cartClear'> slet kurv</button>
+                <div className='cartCheckout'>
+                    <span>i alt</span>
+                    <span className='amount'> {cart.cartItems.reduce(
+                        (total, cartItem) =>
+                        total +
+                        parseFloat(cartItem.idDrink.substring(0, 3)) *
+                        cartItem.cartQuantity,
+                        0).toFixed(2)} kr.</span>
+                </div>
+                <button>Køb</button>
+                <div className="cartContinue">
+                <Link to="/"><span>← Fortsæt med at shoppe</span></Link>
+            </div>
+            </div>
+
         </div>
         )}
    
