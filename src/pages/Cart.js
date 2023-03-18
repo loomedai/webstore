@@ -1,9 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { removeFromCart } from '../features/counter/CartSlice'
 
 function Cart() {
     const cart = useSelector(state => state.cart)
+    const dispatch = useDispatch()
+    const handleRemoveFromCart = (cartItem) => {
+        dispatch(removeFromCart({ id: cartItem.idDrink }));
+    };
   
     return (
       <div className="cartContainer">
@@ -29,7 +34,7 @@ function Cart() {
                     <img src={cartItem.strDrinkThumb} alt={cartItem.strDrink} className="dimg" />
                     <div>
                       <h3>{cartItem.strDrink}</h3>
-                      <button> fjern </button>
+                      <button onClick={() => handleRemoveFromCart(cartItem)}> fjern </button>
                     </div>
                   </div>
   
@@ -38,20 +43,21 @@ function Cart() {
                   </div>
                   <div className="cartQuantity">
                     <button>-</button>
-                    <div className="count">{parseInt(cartItem.idDrink.substring(0, 3)) * cartItem.cartQuantity}</div>
+                    <div className="count">{cartItem.cartQuantity}</div>
                     <button>+</button>
                   </div>
   
                   <div className="totalPrice">
-                    kr.
+                  {parseInt(cartItem.idDrink.substring(0, 3)) * cartItem.cartQuantity} kr.
                   </div>
                 </div>
               ))}
             </div>
   
             <div className='cartSummary'>
-              <button className='cartClear'> slet kurv</button>
+              <button className='cartClear'> Slet alt</button>
               <div className='cartCheckout'>
+                <div className='subtotal'>
                 <span>i alt </span>
                 <span className='amount'>
                   {cart.cartItems.reduce(
@@ -59,10 +65,11 @@ function Cart() {
                       total +
                       parseFloat(cartItem.idDrink.substring(0, 3)) *
                       cartItem.cartQuantity,
-                    0).toFixed(2)} kr.
+                    0).toFixed(0)} kr.
                 </span>
+                </div>
               </div>
-              <button>Check ud</button>
+              <button className='done'>Check ud</button>
               <div className="cartContinue">
                 <Link to="/"><span>← Fortsæt med at shoppe</span></Link>
               </div>
