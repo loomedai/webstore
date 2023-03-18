@@ -7,22 +7,23 @@ const initialState = {
 };
 
 const cartSlice = createSlice({
-    name : "cart",
+    name: 'cart',
     initialState,
     reducers: {
-        addToCart(state, action) {
-                
-            const cocktailIndex = state.cartItems.findIndex( cocktail => cocktail.idDrink === action.payload.id)
-
-            if(cocktailIndex >= 0){
-                state.cartItems[cocktailIndex].cartQuantity += 1
-            } else{
-            const tempCocktail = { ...action.payload, cartQuantity: 1};
-            state.cartItems.push(tempCocktail);
-        }},
-    },
-
-});
+      addToCart(state, action) {
+        const item = action.payload;
+        const existingItemIndex = state.cartItems.findIndex(cocktail => cocktail.idDrink === item.idDrink);
+        
+        if (existingItemIndex >= 0) {
+          state.cartItems[existingItemIndex].cartQuantity += 1;
+        } else {
+          const newItem = {...item, cartQuantity: 1};
+          state.cartItems.push(newItem);
+        }
+      }
+    }
+  });
+  
 
 export const { addToCart } = cartSlice.actions;
 
