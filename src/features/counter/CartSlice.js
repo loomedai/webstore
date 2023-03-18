@@ -30,13 +30,22 @@ const cartSlice = createSlice({
         
       },
       decreaseCart(state, action){
-        const item = state.cartItems.findIndex(cocktail => cocktail.idDrink === action.payload.idDrink);
+        const item = state.cartItems.findIndex(cocktail => cocktail.idDrink === action.payload.idDrink)
 
-      }
-    }
+        if(state.cartItems[item ].cartQuantity >1){
+          state.cartItems[item].cartQuantity -=1
+        } 
+        else if (state.cartItems[item].cartQuantity === 1) {const nextCartItems = state.cartItems.filter(
+          cartItem => cartItem.idDrink !== action.payload.idDrink
+        )
+
+        state.cartItems = nextCartItems;
+        }
+      },
+    },
   });
   
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, decreaseCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
