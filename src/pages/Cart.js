@@ -38,7 +38,7 @@ function Cart() {
                   </div>
                   <div className="cartQuantity">
                     <button>-</button>
-                    <div className="count">{cartItem.cartQuantity}</div>
+                    <div className="count">{parseInt(cartItem.idDrink.substring(0, 3)) * cartItem.cartQuantity}</div>
                     <button>+</button>
                   </div>
   

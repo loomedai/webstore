@@ -11,7 +11,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
+    background: linear-gradient(30deg, #67034b, #1562a2);
     color: white;
     padding: 10px;
   }
@@ -118,7 +118,31 @@ body{
     margin-right: 1rem;
   }  
 
+  .cartQuantity{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 130px;
+    max-width: 100%;
+    border-radius: 5px;
+    border: 0.5px solid #1562a2;
+    
+  }
 
+  .cartQuantity button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0.7rem 1.5rem;
+    background-color: white;
+    
+  }
+
+  .totalPrice{
+    justify-self: right;
+    padding: 0.5rem;
+    font-weight: 700;
+  }
 
   @media only screen and (min-width: 768px) {
     
